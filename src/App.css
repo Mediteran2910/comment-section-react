@@ -1,0 +1,59 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.other-users-wrapp {
+  width: 90%;
+  background-color: rgb(189, 189, 189);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+}
+
+.user-head-details {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-content {
+  max-width: 90%;
+}
+
+.likes-wrapp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+}
+
+.reply-btn {
+  background-color: blueviolet;
+  color: white;
+  width: 25%;
+}
+
+.like-reply-wrapp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
