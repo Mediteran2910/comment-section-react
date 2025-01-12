@@ -9,15 +9,18 @@ import EditBtn from "./EditBtn";
 import DeleteBtn from "./DeleteBtn";
 
 export default function Replies({ repliesArr }) {
-  const { data, setData, replyingTo, setReplyingTo } = useContext(DataContext);
+  const {
+    data,
+    setData,
+    replyingTo,
+    setReplyingTo,
+    setDeleteId,
+    setDeleteConfirmation,
+  } = useContext(DataContext);
 
-  const handleDelete = (id) => {
-    setData((prevData) =>
-      prevData.map((item) => ({
-        ...item,
-        replies: item.replies.filter((oneReply) => oneReply.id !== id),
-      }))
-    );
+  const firstStepDelete = (id) => {
+    setDeleteId(id);
+    setDeleteConfirmation((prevDeleteconfirmation) => !prevDeleteconfirmation);
   };
 
   return (
@@ -32,12 +35,12 @@ export default function Replies({ repliesArr }) {
 
             {reply.content}
           </p>
-          {reply.user.username === "juliusomo" ? (
+          {reply.isYou ? (
             <div className="like-reply-wrapp">
               <LikeBtn user={reply} />
               <div className="edit-delete-wrapp">
                 <EditBtn />
-                <DeleteBtn handleDelete={() => handleDelete(reply.id)} />
+                <DeleteBtn firstStepDelete={() => firstStepDelete(reply.id)} />
               </div>
             </div>
           ) : (

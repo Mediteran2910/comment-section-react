@@ -12,10 +12,24 @@ export default function DataProvider({ children }) {
     console.log("replying to", id);
   };
 
+  const [deleteConfirmation, setDeleteConfirmation] = useState(false);
+
+  const [deleteId, setDeleteId] = useState(null);
+
   return (
     <>
       <DataContext.Provider
-        value={{ data, setData, handleReplyBtn, replyingTo, setReplyingTo }}
+        value={{
+          data,
+          setData,
+          handleReplyBtn,
+          replyingTo,
+          setReplyingTo,
+          deleteConfirmation,
+          setDeleteConfirmation,
+          deleteId,
+          setDeleteId,
+        }}
       >
         {children}
       </DataContext.Provider>

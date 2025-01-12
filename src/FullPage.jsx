@@ -4,8 +4,27 @@ import OtherUsersInfo from "./OtherUsersInfo";
 import { DataContext } from "./DataProvider";
 import PersonalComment from "./PersonalComment";
 
+import DeleteConf from "../DeleteConf";
+
 export default function FullPage() {
-  const { data } = useContext(DataContext);
+  const {
+    data,
+    deleteConfirmation,
+    setDeleteConfirmation,
+    deleteId,
+    setDeleteId,
+    setData,
+  } = useContext(DataContext);
+
+  const confirmDelete = (id) => {
+    setData((prevData) =>
+      prevData.map((item) => ({
+        ...item,
+        replies: item.replies.filter((oneReply) => oneReply.id !== id),
+      }))
+    );
+    setDeleteConfirmation(false);
+  };
 
   return (
     <>
@@ -18,6 +37,9 @@ export default function FullPage() {
         </div>
       ))}
       <PersonalComment placeholder="Your comment..." />
+      {deleteConfirmation && (
+        <DeleteConf confirmDelete={() => confirmDelete(deleteId)} />
+      )}
     </>
   );
 }
