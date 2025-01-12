@@ -2,24 +2,24 @@ import { useContext } from "react";
 import { DataContext } from "./DataProvider";
 import LikeBtn from "./LikeBtn";
 import ReplyBtn from "./ReplyBtn";
-export default function OtherUsersInfo() {
-  const otherUsersData = useContext(DataContext);
+import UserDetails from "./UserDetails";
+import Replies from "./Replies";
+import PersonalComment from "./PersonalComment";
+export default function OtherUsersInfo({ user, placeholder }) {
+  const { replyingTo } = useContext(DataContext);
   return (
     <>
-      {otherUsersData.map((user, index) => (
-        <div key={index} className="other-users-wrapp">
-          <div className="user-head-details">
-            <img src={user.user.image.png} alt="profile picture of the user" />
-            <p>{user.user.username}</p>
-            <p> {user.createdAt}</p>
-          </div>
-          <p className="user-content">{user.content}</p>
-          <div className="like-reply-wrapp">
-            <LikeBtn />
-            <ReplyBtn />
-          </div>
+      <div className="other-users-wrapp">
+        <UserDetails user={user} />
+        <p className="user-content">{user.content}</p>
+        <div className="like-reply-wrapp">
+          <LikeBtn user={user} />
+          <ReplyBtn userId={user.id} />
         </div>
-      ))}
+      </div>
+      {replyingTo === user.id && (
+        <PersonalComment placeholder="Your reply..." />
+      )}
     </>
   );
 }
