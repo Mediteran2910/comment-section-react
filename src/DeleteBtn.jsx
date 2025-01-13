@@ -1,9 +1,4 @@
-import { useContext, useState } from "react";
-import { DataContext } from "./DataProvider";
-
 export default function DeleteBtn({ firstStepDelete }) {
-  const { setDeleteConfirmation } = useContext(DataContext);
-
   return (
     <>
       <img

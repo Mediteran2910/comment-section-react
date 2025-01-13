@@ -11,6 +11,7 @@ export default function DeleteConf({ confirmDelete }) {
     <>
       <div className="delete-confirmation-wrapp">
         <div className="delete-confirmation">
+          <h2>Delete comment</h2>
           <p>
             Are you sure you want to delete your reply? This will remove the
             reply and can't be undone.

@@ -1,12 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DataContext } from "./DataProvider";
 import LikeBtn from "./LikeBtn";
 import ReplyBtn from "./ReplyBtn";
 import UserDetails from "./UserDetails";
-import Replies from "./Replies";
+
 import PersonalComment from "./PersonalComment";
-export default function OtherUsersInfo({ user, placeholder }) {
+export default function OtherUsersInfo({ user }) {
   const { replyingTo } = useContext(DataContext);
+
   return (
     <>
       <div className="other-users-wrapp">

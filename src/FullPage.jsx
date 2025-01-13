@@ -14,8 +14,6 @@ export default function FullPage() {
     replyId,
     setReplyId,
     setData,
-    isEdit,
-    setIsEdit,
   } = useContext(DataContext);
 
   const confirmDelete = (id) => {

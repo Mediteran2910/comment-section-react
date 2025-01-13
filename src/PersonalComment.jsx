@@ -1,9 +1,14 @@
 import { otherUsers, currentUser } from "./Info";
 import UserDetails from "./UserDetails";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { DataContext } from "./DataProvider";
 
-export default function PersonalComment({ placeholder, user }) {
+export default function PersonalComment({
+  placeholder,
+  reply,
+  isEdit,
+  setIsEdit,
+}) {
   const {
     data,
     setData,
@@ -12,11 +17,31 @@ export default function PersonalComment({ placeholder, user }) {
     setReplyId,
     setDeleteConfirmation,
     replyId,
-    isEdit,
-    setIsEdit,
   } = useContext(DataContext);
 
   const [commentText, setCommentText] = useState("");
+
+  useEffect(() => {
+    if (isEdit) {
+      data.map((item) => {
+        item.replies.map((oneReply) => {
+          if (oneReply.id === replyId) {
+            console.log(
+              "this is the one i found",
+              oneReply.id,
+              oneReply.content
+            );
+            setCommentText(oneReply.content);
+            console.log(commentText);
+            return;
+          } else {
+            console.log("didnt find it", oneReply.id, replyId);
+            return;
+          }
+        });
+      });
+    }
+  }, [isEdit]);
 
   const handleSubmitComment = (event) => {
     event.preventDefault();
@@ -34,7 +59,6 @@ export default function PersonalComment({ placeholder, user }) {
         username: currentUser.username,
       },
       replies: [],
-      replyTo: "",
     };
 
     if (isEdit === true) {
@@ -98,7 +122,7 @@ export default function PersonalComment({ placeholder, user }) {
             onChange={handleChange}
             placeholder={placeholder}
           ></textarea>
-          <button type="submit">SEND</button>
+          <button type="submit">{isEdit ? "Save" : "Send"}</button>
         </form>
       </div>
     </>

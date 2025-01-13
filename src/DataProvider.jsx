@@ -1,6 +1,5 @@
 import { useState, createContext, useContext } from "react";
 import { otherUsers } from "./Info";
-import PersonalComment from "./PersonalComment";
 export const DataContext = createContext();
 
 export default function DataProvider({ children }) {
@@ -14,7 +13,6 @@ export default function DataProvider({ children }) {
 
   const [deleteConfirmation, setDeleteConfirmation] = useState(false);
   const [replyId, setReplyId] = useState(null);
-  const [isEdit, setIsEdit] = useState(false);
 
   return (
     <>
@@ -29,8 +27,6 @@ export default function DataProvider({ children }) {
           setDeleteConfirmation,
           replyId,
           setReplyId,
-          isEdit,
-          setIsEdit,
         }}
       >
         {children}

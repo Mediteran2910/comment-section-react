@@ -1,6 +1,4 @@
-import { DataContext } from "./DataProvider";
-import { useContext, useState } from "react";
-import { otherUsers } from "./Info";
+import { useState } from "react";
 
 export default function LikeBtn({ user }) {
   const [score, setScore] = useState(user.score);

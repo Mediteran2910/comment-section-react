@@ -12,7 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(244, 242, 242);
   width: 100%;
   height: auto;
   overflow-x: hidden;
@@ -29,6 +29,7 @@ body {
   text-align: left;
   margin-block: 10px;
   border-radius: 10px;
+  max-width: 650px;
 }
 
 .user-head-details {
@@ -55,6 +56,7 @@ body {
 
 .picture-username-wrapp img {
   width: 30%;
+  max-width: 50px;
 }
 
 .user-content {
@@ -68,8 +70,22 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 35%;
+  border-radius: 10px;
+  max-width: 175px;
+}
+
+.like-wrapp p {
+  margin: 10px;
+}
+
+.likes-wrapp button:hover {
+  transition: transform 0.3s ease;
+}
+
+.likes-wrapp button:hover {
+  transform: scale(1.1);
 }
 
 .reply-btn-wrapp {
@@ -81,6 +97,7 @@ body {
   align-items: center;
   justify-content: space-evenly;
   min-height: 100%;
+  max-width: 140px;
   transition: transform 0.3s ease;
 }
 
@@ -114,6 +131,7 @@ body {
   justify-content: flex-end;
   text-align: left;
   border-left: 2px solid rgb(152, 152, 152);
+  max-width: 650px;
 }
 
 .replies {
@@ -156,6 +174,7 @@ body {
   margin-bottom: 10px;
   z-index: 0;
   position: relative;
+  padding-bottom: 10px;
 }
 
 .details-personal-comment img {
@@ -171,16 +190,21 @@ body {
 }
 .details-personal-comment button {
   margin-top: 10px;
-  background-color: blueviolet;
+  background-color: rgb(80, 89, 218);
   color: white;
+  transition: transform 0.3s ease;
+}
+
+.details-personal-comment button:hover {
+  transform: scale(1.1);
 }
 
 .edit-delete-wrapp {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  width: 50%;
+  justify-content: flex-end;
+  width: 45%;
   margin-left: 10px;
 }
 
@@ -188,6 +212,7 @@ body {
   width: 20%;
   margin: 10px;
   transition: transform 0.3s ease;
+  max-width: 30px;
 }
 
 .edit-delete-wrapp img:hover {
@@ -219,7 +244,7 @@ body {
   position: fixed;
   min-width: 100vw;
   min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.527);
+  background-color: rgba(0, 0, 0, 0.722);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -229,6 +254,7 @@ body {
   width: 85%;
   background-color: rgb(244, 244, 244);
   border-radius: 10px;
+  max-width: 400px;
 }
 
 .delete-keep-wrapp {
@@ -240,14 +266,17 @@ body {
   color: rgb(0, 0, 0);
   align-self: center;
   justify-self: center;
-  margin-top: 30px;
-  padding-top: 30px;
+  margin-top: 10px;
   text-align: center;
+}
+
+.delete-confirmation h2 {
+  padding-top: 20px;
 }
 
 .delete-keep-wrapp button {
   margin: 20px;
-  background-color: rgb(109, 109, 109);
+  background-color: rgb(20, 132, 217);
   color: white;
   transition: transform 0.3s ease;
 }
@@ -256,4 +285,15 @@ body {
   cursor: pointer;
   transform: scale(1.1);
   border: none;
+}
+
+textarea {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 60%;
+}
+
+textarea::placeholder {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
