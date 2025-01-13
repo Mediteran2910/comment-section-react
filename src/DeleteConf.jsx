@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { DataContext } from "./src/DataProvider";
+import { DataContext } from "./DataProvider";
 
 export default function DeleteConf({ confirmDelete }) {
   const { setDeleteConfirmation } = useContext(DataContext);
@@ -13,7 +13,7 @@ export default function DeleteConf({ confirmDelete }) {
         <div className="delete-confirmation">
           <p>
             Are you sure you want to delete your reply? This will remove the
-            comment and can't be undone.
+            reply and can't be undone.
           </p>
           <div className="delete-keep-wrapp">
             <button onClick={rejectDelete}>Keep reply</button>

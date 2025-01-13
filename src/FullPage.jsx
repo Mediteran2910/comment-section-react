@@ -4,16 +4,18 @@ import OtherUsersInfo from "./OtherUsersInfo";
 import { DataContext } from "./DataProvider";
 import PersonalComment from "./PersonalComment";
 
-import DeleteConf from "../DeleteConf";
+import DeleteConf from "./DeleteConf";
 
 export default function FullPage() {
   const {
     data,
     deleteConfirmation,
     setDeleteConfirmation,
-    deleteId,
-    setDeleteId,
+    replyId,
+    setReplyId,
     setData,
+    isEdit,
+    setIsEdit,
   } = useContext(DataContext);
 
   const confirmDelete = (id) => {
@@ -31,6 +33,7 @@ export default function FullPage() {
       {data.map((user, index) => (
         <div key={index} className="full-page-wrapper">
           <OtherUsersInfo user={user} />
+
           {user.replies.length >= 0 ? (
             <Replies repliesArr={user.replies} />
           ) : null}
@@ -38,7 +41,7 @@ export default function FullPage() {
       ))}
       <PersonalComment placeholder="Your comment..." />
       {deleteConfirmation && (
-        <DeleteConf confirmDelete={() => confirmDelete(deleteId)} />
+        <DeleteConf confirmDelete={() => confirmDelete(replyId)} />
       )}
     </>
   );

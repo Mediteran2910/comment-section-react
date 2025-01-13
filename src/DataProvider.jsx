@@ -13,8 +13,8 @@ export default function DataProvider({ children }) {
   };
 
   const [deleteConfirmation, setDeleteConfirmation] = useState(false);
-
-  const [deleteId, setDeleteId] = useState(null);
+  const [replyId, setReplyId] = useState(null);
+  const [isEdit, setIsEdit] = useState(false);
 
   return (
     <>
@@ -27,8 +27,10 @@ export default function DataProvider({ children }) {
           setReplyingTo,
           deleteConfirmation,
           setDeleteConfirmation,
-          deleteId,
-          setDeleteId,
+          replyId,
+          setReplyId,
+          isEdit,
+          setIsEdit,
         }}
       >
         {children}

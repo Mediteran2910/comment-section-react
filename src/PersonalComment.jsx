@@ -4,7 +4,17 @@ import { useContext, useState } from "react";
 import { DataContext } from "./DataProvider";
 
 export default function PersonalComment({ placeholder, user }) {
-  const { data, setData, replyingTo, setReplyingTo } = useContext(DataContext);
+  const {
+    data,
+    setData,
+    replyingTo,
+    setReplyingTo,
+    setReplyId,
+    setDeleteConfirmation,
+    replyId,
+    isEdit,
+    setIsEdit,
+  } = useContext(DataContext);
 
   const [commentText, setCommentText] = useState("");
 
@@ -26,13 +36,26 @@ export default function PersonalComment({ placeholder, user }) {
       replies: [],
       replyTo: "",
     };
-    if (replyingTo < 0 || replyingTo === null) {
+
+    if (isEdit === true) {
+      setData((prevData) =>
+        prevData.map((item) => ({
+          ...item,
+          replies: item.replies.map((reply) =>
+            reply.id === replyId ? { ...reply, content: commentText } : reply
+          ),
+        }))
+      );
+      setIsEdit(false);
+      setCommentText("");
+      setReplyId(Math.random());
+    } else if (replyingTo < 0 || replyingTo === null) {
       console.log(newPersonalComment);
       setData((prevData) => [...prevData, newPersonalComment]);
       setCommentText("");
     } else {
       setData((prevData) =>
-        prevData.map((item, index) => {
+        prevData.map((item) => {
           if (replyingTo === item.id) {
             console.log(
               "i found one:",
