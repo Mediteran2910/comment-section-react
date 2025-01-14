@@ -99,13 +99,13 @@ body {
   min-height: 100%;
   max-width: 140px;
   transition: transform 0.3s ease;
-}
-
-.reply-btn-wrapp button {
   color: rgb(78, 74, 162);
   padding: 0;
   padding: 10px 0px;
   border: none;
+}
+
+.reply-btn-wrapp button {
 }
 
 .reply-btn-wrapp:hover {
