@@ -9,15 +9,8 @@ export default function PersonalComment({
   isEdit,
   setIsEdit,
 }) {
-  const {
-    data,
-    setData,
-    replyingTo,
-    setReplyingTo,
-    setReplyId,
-    setDeleteConfirmation,
-    replyId,
-  } = useContext(DataContext);
+  const { data, setData, replyingTo, setReplyingTo, setReplyId, replyId } =
+    useContext(DataContext);
 
   const [commentText, setCommentText] = useState("");
 

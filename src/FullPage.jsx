@@ -32,7 +32,7 @@ export default function FullPage() {
         <div key={index} className="full-page-wrapper">
           <OtherUsersInfo user={user} />
 
-          {user.replies.length >= 0 ? (
+          {user.replies.length > 0 ? (
             <Replies repliesArr={user.replies} />
           ) : null}
         </div>
